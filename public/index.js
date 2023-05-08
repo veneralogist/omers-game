@@ -1,49 +1,43 @@
 n = parseInt($('input[type="radio"]:checked').val());
 
 let baslangic =
-' <h1 id="level-title"> choose difficulty and<br><br> Press A Key to Start</h1>'+
-      '<div class="radio-container">'+
-        '<div>'+
-          '<input type="radio" name="isaret_kutusu" id="isaret1" value="2"  data-num="0"/>'+
-          '<label for="isaret1">2li</label>'+
-        '</div>'+
-      '  <div>'+
-          '<input type="radio" name="isaret_kutusu" id="isaret2" value="3"  data-num="1"/>'+
-          '<label for="isaret2">3lü</label>'+
-        '</div>'+
-        '<div>'+
-          '<input type="radio" name="isaret_kutusu" id="isaret3" value="4"  data-num="2" />'+
-          '<label for="isaret3">4lü</label>'+
-       ' </div>'+
-     ' </div>'
-  
+  ' <h1 id="level-title"> choose difficulty and<br><br> click anywhere to start</h1>' +
+  '<div class="radio-container hersey">' +
+  "<div>" +
+  '<input type="radio" name="isaret_kutusu" id="isaret1" value="2"  data-num="0"/>' +
+  '<label for="isaret1">2li</label>' +
+  "</div>" +
+  "  <div>" +
+  '<input type="radio" name="isaret_kutusu" id="isaret2" value="3"  data-num="1"/>' +
+  '<label for="isaret2">3lü</label>' +
+  "</div>" +
+  "<div>" +
+  '<input type="radio" name="isaret_kutusu" id="isaret3" value="4"  data-num="2" />' +
+  '<label for="isaret3">4lü</label>' +
+  " </div>" +
+  " </div>";
 
 max = [];
 max.push([0]);
 max.push([0]);
 max.push([0]);
 var n;
-$(".btn").hide()
+$(".btn").hide();
 
 $.ajax({
   type: "POST",
   url: "/oyun",
   data: {
-      skors:max
+    skors: max,
   },
-  success: function(response) {
-      console.log(response)
-      max=response
-      
+  success: function (response) {
+    console.log(response);
+    max = response;
   },
-  error: function(xhr, status, error) {
-      console.log(error);
-  }
+  error: function (xhr, status, error) {
+    console.log(error);
+  },
 });
-
-
-
-
 
 gamePattern = [];
 playerPattern = [];
@@ -54,25 +48,24 @@ function buttonColours() {
 }
 
 function nextSequence() {
-
   if (level != -1) {
-    if(level==0){
+    if (level == 0) {
       $.ajax({
         type: "POST",
         url: "/xial",
         data: {
-          basamak: $("input[name='isaret_kutusu']:checked").data("num")
+          basamak: $("input[name='isaret_kutusu']:checked").data("num"),
         },
-        success: function(response) {
-           // max dizisini sayısal bir diziye dönüştürün
+        success: function (response) {
+          // max dizisini sayısal bir diziye dönüştürün
           console.log(response);
         },
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
           console.log(error);
-        }
+        },
       });
     }
-    $(".isimd").hide()
+    $(".isimd").hide();
     level++;
     $(".ilk").html("<h1 id='level-title'>Level:" + level.toString() + "</h1>");
     randomNumber = Math.floor(Math.random() * n);
@@ -93,7 +86,7 @@ function nextSequence() {
 }
 $(".btn").click(function () {
   if (level >= 0) {
-    $(".isimd").hide()
+    $(".isimd").hide();
     var buttonId = $(this).attr("id");
     audio = new Audio("/sounds/" + $(this).data("value") + ".mp3");
     audio.play();
@@ -108,10 +101,6 @@ $(".btn").click(function () {
   }
   return false;
 });
-
-
-
-
 
 function kontrol() {
   for (let i = 0; i < playerPattern.length; i++) {
@@ -128,59 +117,59 @@ function kontrol() {
   return true;
 }
 
-$("input[type='radio']").change(function() {
-  $(".btn").show()
+$("input[type='radio']").change(function () {
+  $(".btn").show();
   // radio elemanının checked durumu değiştiğinde burada çalışacak kodlar yer alabilir
   $.ajax({
     type: "POST",
     url: "/zirvedeki",
     data: {
-      zorluk: $("input[name='isaret_kutusu']:checked").data("num")
+      zorluk: $("input[name='isaret_kutusu']:checked").data("num"),
     },
-    success: function(response) {
-      $(".zirve").text(response[0]+":"+String(response[1]));
-      
+    success: function (response) {
+      $(".zirve").text(response[0] + ":" + String(response[1]));
     },
-    error: function(xhr, status, error) {
+    error: function (xhr, status, error) {
       console.log(error);
-    }
+    },
   });
   selectDifficulty();
-  $(".zirve").show()
+  $(".zirve").show();
 });
 
-$(document).on("keydown", function () {
-  
-    if (level == 0&&($("input[name='isaret_kutusu']:checked").length > 0)) {
-      gamePattern = [];
-      playerPattern = [];
-      nextSequence();
-    }
-    if (level == -1) {
-      $(".ilk").html(baslangic);
-      level = 0;
-      playerPattern = [];
-      $("input[type='radio']").change(function() {
-        $.ajax({
-          type: "POST",
-          url: "/zirvedeki",
-          data: {
-            zorluk: $("input[name='isaret_kutusu']:checked").data("num")
-          },
-          success: function(response) {
-            $(".zirve").text(response[0]);
-            
-          },
-          error: function(xhr, status, error) {
-            console.log(error);
-          }
+$(document).ready(function () {
+  $("body ,.hersey").on("click", function (event) {
+    if (event.target === this) {
+      if (level == 0 && $("input[name='isaret_kutusu']:checked").length > 0) {
+        gamePattern = [];
+        playerPattern = [];
+        nextSequence();
+      }
+      if (level == -1) {
+        $(".ilk").html(baslangic);
+        level = 0;
+        playerPattern = [];
+        $("input[type='radio']").change(function () {
+          $.ajax({
+            type: "POST",
+            url: "/zirvedeki",
+            data: {
+              zorluk: $("input[name='isaret_kutusu']:checked").data("num"),
+            },
+            success: function (response) {
+              $(".zirve").text(response[0]);
+            },
+            error: function (xhr, status, error) {
+              console.log(error);
+            },
+          });
+          // radio elemanının checked durumu değiştiğinde burada çalışacak kodlar yer alabilir
+          selectDifficulty();
         });
-        // radio elemanının checked durumu değiştiğinde burada çalışacak kodlar yer alabilir
-        selectDifficulty();
-      });
-       // call the function to assign value to `n`
+        // call the function to assign value to `n`
+      }
     }
-  
+  });
 });
 
 function selectDifficulty() {
@@ -214,7 +203,11 @@ function selectDifficulty() {
 
 function bitti() {
   audio = new Audio("/sounds/wrong.mp3");
-  $(".ilk").html("<h1 id='level-title'>Game Over "+String(level)+" <br> <br> Press A Key to continue </h1>");
+  $(".ilk").html(
+    "<h1 id='level-title'>Game Over " +
+      String(level) +
+      " <br> <br> click anywhere to continue </h1>"
+  );
   
     $(".zirve").hide()
   level = -1;

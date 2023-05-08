@@ -1,10 +1,10 @@
 <%- include("header") -%>
 
 <body>
-    <div class="ilk">
+    <div class="ilk hersey">
       <h1 id="level-title"><%= ad %></h1>
-      <h1 id="level-title"> choose difficulty and <br><br> Press A Key to Start</h1>
-      <div class="radio-container">
+      <h1 id="level-title"> choose difficulty and <br><br>click anywhere to start</h1>
+      <div class="radio-container hersey">
         <div>
           <input type="radio" name="isaret_kutusu" id="isaret1" value="2"  data-num="0"/>
           <label for="isaret1">2li</label>
@@ -20,13 +20,13 @@
       </div>
     </div>
 
-    <div class="container">
+    <div class="container hersey">
       <div lass="row">
         <div data-value="0" type="button" id="green" class="btn green"></div>
 
         <div data-value="1" type="button" id="red" class="btn red"></div>
       </div>
-      <form action="/isim" method="post">
+      <form class="hersey" action="/isim" method="post">
         <button type="submit" class="isimd">ismi değiştir</button>
       </form>
       <div class="row">
