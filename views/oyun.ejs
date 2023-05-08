@@ -1,0 +1,40 @@
+<%- include("header") -%>
+
+<body>
+    <div class="ilk">
+      <h1 id="level-title"><%= ad %></h1>
+      <h1 id="level-title"> choose difficulty and <br><br> Press A Key to Start</h1>
+      <div class="radio-container">
+        <div>
+          <input type="radio" name="isaret_kutusu" id="isaret1" value="2"  data-num="0"/>
+          <label for="isaret1">2li</label>
+        </div>
+        <div>
+          <input type="radio" name="isaret_kutusu" id="isaret2" value="3"  data-num="1"/>
+          <label for="isaret2">3lü</label>
+        </div>
+        <div>
+          <input type="radio" name="isaret_kutusu" id="isaret3" value="4"  data-num="2"/>
+          <label for="isaret3">4lü</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div lass="row">
+        <div data-value="0" type="button" id="green" class="btn green"></div>
+
+        <div data-value="1" type="button" id="red" class="btn red"></div>
+      </div>
+      <form action="/isim" method="post">
+        <button type="submit" class="isimd">ismi değiştir</button>
+      </form>
+      <div class="row">
+        <div data-value="2" type="button" id="yellow" class="btn yellow"></div>
+        <div data-value="3" type="button" id="blue" class="btn blue"></div>
+      </div>
+    </div>
+    <h1 id="level-title" class="zirve"> </h1>
+
+    
+ <%- include("footer") -%>

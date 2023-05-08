@@ -1,0 +1,238 @@
+body {
+  text-align: center;
+  background-color: #011f3f;
+}
+h1{
+  font-family: "Press Start 2P", cursive;
+  font-size: 3rem;
+  margin: 5%;
+  color: #fef2bf;
+}
+
+#level-title {
+  font-family: "Press Start 2P", cursive;
+  font-size: 3rem;
+  margin: 5%;
+  color: #fef2bf;
+}
+
+.container {
+  display: block;
+  width: 50%;
+  margin: auto;
+}
+
+.btn {
+  margin: 25px;
+  display: inline-block;
+  height: 200px;
+  width: 200px;
+  border: 10px solid black;
+  border-radius: 20%;
+  pointer-events: all;
+}
+
+.game-over {
+  background-color: red;
+  opacity: 0.8;
+}
+
+#red {
+  background-color: red;
+}
+
+#green {
+  background-color: green;
+}
+
+#blue {
+  background-color: blue;
+}
+
+#yellow {
+  background-color: yellow;
+}
+
+.pressed {
+  box-shadow: 0 0 20px white;
+  background-color: grey;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  display: block;
+  pointer-events: all;
+}
+
+input[type="checkbox"]:checked,
+input[type="radio"]:checked {
+  background-color: red;
+}
+p {
+  font-family: "Press Start 2P", cursive;
+  display: inline;
+  font-size: 1rem;
+  color: white;
+}
+#my-text {
+  font-size: 24px;
+  font-family: "Press Start 2P", cursive;
+  text-align: center;
+  position: absolute;
+  color: purple;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+}
+.isim-label{
+  font-size: 24px;
+  font-family: "Press Start 2P", cursive;
+  display: inline-block;
+  text-align: center;
+  position: absolute;
+  color: purple;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+input[type="text"]{
+  font-size: 24px;
+  font-family: "Press Start 2P", cursive;
+  display: inline-block;
+  text-align: center;
+  position: absolute;
+  color: black;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.isim {
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: "Press Start 2P", cursive;
+  display: inline-block;
+  text-align: center;
+  position: absolute;
+  color: black;
+  top: 60%;
+  left: 50%;
+  width: 20%;
+  height: 10%;
+  transform: translate(-50%, -50%);
+}
+
+.isim:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+
+.radio-container {
+  display: flex;
+  justify-content: center;
+  color: #fef2bf;
+  font-family: "Press Start 2P", cursive;
+}
+
+.radio-container > div {
+  margin: 0 10px;
+  display: flex;
+  align-items: center;
+}
+
+.radio-container input[type="radio"] {
+  margin-right: 5px;
+}
+
+.radio-container input[type="radio"]:last-child {
+  margin-right: 0;
+}
+.isimd {
+  display:none;
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 24px;
+  padding: 10px 20px 10px 20px;
+  margin: 5%;
+  text-decoration: none;
+}
+
+.isimd:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+@media (max-width: 1130px) {
+  .btn{
+    margin: 10px;
+    display: inline-block;
+    height: 150px;
+    width: 150px;
+    border: 5px solid black;
+  }
+  input[type="radio"] {
+    width: 15px;
+    height: 15px;
+    display: block;
+  }
+  p{
+    font-size: 1rem;
+
+  }#level-title {
+    font-size: 1.5rem;
+    margin: 5%;
+  }
+  #level-title {
+    font-size: 2 rem;
+    margin: 5%;
+  }
+
+}
+
+@media (max-width: 780px) {
+  .btn{
+    margin: 10px;
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    border: 2px solid black;
+  }
+  input[type="radio"] {
+    width: 10px;
+    height: 10px;
+    display: block;
+  }
+  p{
+    font-size: 0.5rem;
+
+  }#level-title {
+    font-size: 1.5rem;
+    margin: 5%;
+  }
+}
